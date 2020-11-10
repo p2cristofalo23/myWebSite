@@ -1,0 +1,84 @@
+<html>
+<head>
+<script language = "JavaScript">
+
+var answers = ["yes", "no", "defiantly no", "could be", "its up in the air", "for sure", "absolutely not", "confused", "100% yes"]; 
+
+var clipList = ["sounds/cheering.mp3"];
+
+function random()
+{
+
+
+	var rand = -1;
+	var userQ= document.getElementById("question");
+	var myAnswer = document.getElementById("answer");
+	
+
+	rand = Math.random();
+
+			//returns random decimal between 0 (inclusive) and 1 (exclusive)
+			//generate a random number, multiply Math.random() * # of options
+			//which results in a number between 0 and (options - 1)
+
+	rand = Math.random()*answers.length; 
+	rand = Math.floor(rand); 
+
+			//multiply math.random by the number of options
+			// math.floor truncates the decimal	
+			//alert(users.value.length);
+	
+
+	if(userQ.value.length == 0) //hasn't asked question 
+		{
+		myAnswer.value = "please type a question first";
+		}
+		else 
+		{
+		myAnswer.value = answers[rand];
+		}		
+	
+		if (rand == 9)
+		{
+		document.getElementById("player").play();
+		clip.src = clipList
+		cli.play()
+
+		/*<audio id = "cheering.mp3"> </audio>
+		}*/
+
+}
+
+function reset ()
+{
+	// delete the contents of the answer text box
+	document.getElementById("answer").value = "";
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<center>
+
+<body background="images/oldman.jpg">
+	
+<h1>Magic 8 Ball</h1>
+
+<input id="question" type = "text" size="80" onfocusin = "reset()" /><br/><br/>
+<input type="button" value="Click here" onClick="random()" /><br/><br/>
+<input id="answer" type = "text" size="80" readonly = true /><br/>
+
+<audio src= "sounds/applause.mp3" id="player"/audio>
+
+</center>
+</body>
+</html>
