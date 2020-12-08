@@ -1,4 +1,4 @@
-<html>
+A	aaaaaaa<html>
 <head>
 <script language="javaScript">
 var number = 0;
@@ -74,12 +74,14 @@ Function twosPlace()
 
 Function foursPlace()
 {
-	if (number % 8 < 4)
+	if (number % 8 > 3)
 	{
 		document.getElementById("fours").src = "images/ledOFF.png;
 	}
 	else
+	{
 		document.getElementById("fours").src = "images/ledON.png;
+	}
 }
 
 </script>
@@ -99,7 +101,7 @@ Click here <a href="index.html"> to see my index page </a>
 2^0<br/>
 <img id="ones" src="images/ledOFF.png" width="50"/>
 </div>
-
+<br>
 <div id="second" style="position:absolute; top:150; left: 500">
 2^1<br/>
 <img id="twos" src="images/ledOFF.png" width="50"/>
