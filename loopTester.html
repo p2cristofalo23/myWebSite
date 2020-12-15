@@ -1,0 +1,56 @@
+<html>
+<head>
+<script language="JavaScript">
+
+var favFoods = [ "ice cream", "hamburger", "pancakes", "apple pie", "pasta", "pizza", "hot dogs", "tacos" ];
+
+var counter = 0;
+
+function start()
+{
+/*
+	var tbox = document.getElementById("display");
+	tbox.value = favFoods[counter];
+
+	counter++;
+
+
+	if( counter < favFoods.length )
+	{
+		var timer = setTimeout("start()", 1000);
+	}
+	else
+	{
+		tbox.value = "";
+	}
+
+	
+	// use while loops for an indefinite number of times
+
+	while( counter < favFoods.length ) // condition must be a boolean
+	{
+		alert(favFoods[counter]);
+		counter++
+	}
+
+
+*/
+	for( var i = 0 ; i < favFoods.length ; i++ )
+	{
+		alert(favFoods[i]);
+	}
+
+}
+
+
+</script>
+</head>
+<body>
+<center>
+<h1>Loop Test</h1>
+<input type="button" value="Click me" onClick="start()"/>
+<br/><br/>
+<input id="display" type="text" size="75"/>
+
+<body>
+</html>

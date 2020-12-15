@@ -1,0 +1,106 @@
+<html>
+<head> 
+<script language="JavaScript">
+
+var partsOfSpeech = ["Please enter a living thing", "Please enter a general place", "Please enter a gender", "Please enter a unit of time", "Please enter an Adjective", "Please enter an object", "Please enter a plural unit of measurement", "Please enter a color"];
+
+var answers = [""]
+
+var story = ["A(n) ", " named George went on a walk. He walked around town. He went into the ", " to look for a(n) ", " He searched for many ", " The sun went down and it got ", " Then he found what he was looking for. The man was hiding in the ", " He could see him clear. His beard was ", " long and his skin was ", " The man looked very frail.  George called to the man to get down from the tree. As the man climbed down, he fell. " ];
+
+var count = 0;
+
+function prompt()
+{
+	
+
+	if (count == 0)
+	{
+		
+		var txtBox = document.getElementById("userEnter");
+		txtBox.style.visibility = "visible";
+		document.getElementById("story").style.visibility = "hidden";
+	
+	}
+	
+	document.getElementById("response").value = partsOfSpeech[count];
+
+	
+	// if this is the start, display the textbox and hide the story. 
+	// then display the first element of partsOfSpeech in the textbox. 
+
+	//document.getElementById("userEnter").style.visibility = "visibility";
+	//document.getElementById("story").style.visibility = "hidden";
+	//document.getElementById("response").value = partsOfSpeech[count];
+
+}
+
+
+function getWords()
+{
+	var wordBox = document.getElementById("response");
+	answers[count] = wordBox.value;
+
+	count++;  //increment count
+
+	//test if there is another part of speech
+
+	if (count < partsOfSpeech.length)
+	{
+		prompt();
+	}
+	else //all elements have been added. Time to display the story
+	{
+		count = 0;
+		document.getElementById("story").innerHTML = displayStory();
+	}
+
+}
+
+function displayStory()
+{
+	var answer = "";
+	var i;
+	
+	// loop to stitch elements of story with elements of answers. 
+	
+
+	for (i = 0; i < answers.length; i++)
+	{
+		answer = answer + story[i];
+		answer = answer + answers[i];
+	}
+
+	
+	// if there's one more element in story than answers, then add the last element of 	//answers
+	// Make the story div visible, and the userEnter div hidden.
+	
+	if (i < story.length)
+		answer = answer + story[8];
+
+	document.getElementById("userEnter").style.visibility = "hidden";
+	document.getElementById("story").style.visibility = "visible";
+
+	// return the variable answer.
+	return answer;
+}
+
+</script>
+</head>
+<body>
+<center> 
+<h1>My MadLib!</h1>
+<center>
+<input id="daButton" type="button" value="start" onClick="prompt()"/>
+<center>
+<div id="userEnter" style="position:absolute; left:200; top: 200; visibility:hidden;">
+<input type = "text" size="50" id="response" value="" onfocusout="getWords()"/></p>
+</div>
+<center
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+<div>
+
+</body>
+</html>
